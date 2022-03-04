@@ -1,0 +1,47 @@
+#---
+
+# Configuration of which attributes in a label should be scraped when
+# building a database (pandas DataFrame) of PDS products.
+# 
+# Each section must be labelled with a product
+# type. If filtering by product ID is needed, the prod_id keyword can be set
+# and any products with IDs containing this string will be processed.
+#
+# Under keywords place tuples of identifer and nested PDS3 paths. The database
+# will be populated with these data.
+#
+# One pandas dataframe will be produced for each entry
+
+
+OSINAC:
+  osiris_nac_zoo:
+    prod_id: ""
+    keywords:
+      surf_int_x: 
+        path: 'IMAGE_POI/ROSETTA:SURF_INT_CART_COORD'
+        index: 0
+      surf_int_y: 
+        path: 'IMAGE_POI/ROSETTA:SURF_INT_CART_COORD'
+        index: 1
+      surf_int_z: 
+        path: 'IMAGE_POI/ROSETTA:SURF_INT_CART_COORD'
+        index: 2
+      distance: 
+        path: 'IMAGE_POI/ROSETTA:SURFACE_INTERCEPT_DISTANCE'
+      sc_altitude:
+        path: 'SPACECRAFT_ALTITUDE'
+      phase_angle:
+        path: 'PHASE_ANGLE'
+      sc_position_x:
+        path: 'SC_TARGET_POSITION_VECTOR'
+        index: 0
+      sc_position_y:
+        path: 'SC_TARGET_POSITION_VECTOR'
+        index: 1
+      sc_position_z:
+        path: 'SC_TARGET_POSITION_VECTOR'
+        index: 2
+      sub_sc_lat:
+        path: 'SUB_SPACECRAFT_LATITUDE'
+      sub_sc_lon:
+        path: 'SUB_SPACECRAFT_LONGITUDE'
